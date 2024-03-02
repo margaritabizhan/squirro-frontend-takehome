@@ -1,6 +1,12 @@
 import React from "react";
+import { Store, Countries } from "../types";
 
-const CardFooter: React.FC = () => {
+interface CardFooterProps {
+  store: Store,
+  countries: Countries,
+};
+
+const CardFooter: React.FC<CardFooterProps> = ({ store, countries }) => {
   return (
     <div className="card-footer">
        <div className="date-url-container">

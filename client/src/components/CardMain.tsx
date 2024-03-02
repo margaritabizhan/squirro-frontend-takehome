@@ -1,7 +1,14 @@
 import React from "react";
 import StoreInfo from "./StoreInfo";  
+import { Store, Authors, Book } from "../types";
 
-const CardMain: React.FC = () => {
+interface CardMainProps {
+  store: Store,
+  authors: Authors,
+  books: { [id: string]: Book },
+}
+
+const CardMain: React.FC<CardMainProps> = ({ store, authors, books }) => {
   return (
     <div className="card-main">
       <div className="store-img-container">

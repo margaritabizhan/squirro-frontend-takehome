@@ -9,3 +9,17 @@ export type Store = {
     books: string[]
   };
 };
+
+export type Authors = {
+  [id: string]: string
+};
+
+export type Book = {
+  name: string,
+  copiesSold: number,
+  author: string,
+};
+
+export type Countries = {
+  [id: string]: string
+};
