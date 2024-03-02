@@ -116,6 +116,13 @@
 
 .store-rating-container {
   padding: 5px;
+  display: inline-flex;
+}
+
+.stars-container {
+  padding: 1%;
+  display:flex;
+  align-items: center;
 }
 
 .book-table-container {
