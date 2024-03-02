@@ -3,7 +3,7 @@
 :root {
   --primary-dark: #202a4d;
   --primary-light: #f1f4f2;
-  --accent-coral: #ec8887;
+  --accent-coral: #efabaa;
   --accent-blue: #8a9cac;
   --font-family: 'Mako', sans-serif;
   --font-size-base: 18px;
@@ -22,7 +22,7 @@
 
 @media (max-width: 768px) {
   :root {
-    --font-size-base: 14px;
+    --font-size-base: 10px;
   }
 }
 
@@ -77,26 +77,28 @@
 }
 
 .store-img-container {
-  flex: 2;
+  flex: 3;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 2%;
+  padding-left: 1%;
 }
 
-.store-img {
-  width: 100%;
+.store-img-bg {
+  aspect-ratio: 1/1;
+  height: 100%;
   border-radius: 50%;
-  object-fit: cover;
+  background-size: cover;
+  background-position: center;
   transition: transform 0.3s ease;
 }
 
-.store-img:hover {
+.store-img-bg:hover {
   transform: scale(1.1);
 }
 
 .store-info-container {
-  flex: 8;
+  flex: 7;
   display: flex;
   flex-direction: column;
   padding-left: 3%;
@@ -112,6 +114,7 @@
 
 .store-name-container{
   padding: 5px;
+  font-size: 1.5em;
 }
 
 .store-rating-container {
@@ -119,11 +122,29 @@
   display: inline-flex;
 }
 
+.store-rating {
+  padding: 5px;
+}
+
 .stars-container {
-  padding: 1%;
+  padding: 2%;
   display:flex;
   align-items: center;
 }
+
+.star-img {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .star-img {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+
 
 .book-table-container {
   flex: 7;
@@ -183,13 +204,17 @@
   flex: 1;
   display: flex;
   justify-content: end;
-  align-items: center;
-  padding-right: 3%;
+  align-items: end;
+  /* padding-right: 3%; */
 }
 
 .flag-img {
+  height: auto;
+  padding-right: 0;
+  margin-right: 0;
 }
 
+/*Styles for error and loading messages*/
 .error-container {
   display: flex;
   flex-direction: column;

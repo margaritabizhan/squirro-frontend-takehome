@@ -97,7 +97,7 @@ const StoreContainer: React.FC = () => {
     console.log('Countries', countries);
   }, [stores, authors, books, countries]);
 
-  const storeCardContainer = [];
+  const storeCardContainer: React.ReactElement[] = [];
   for (let key in stores) {
     storeCardContainer.push(<StoreCard key={key} store={stores[key]} authors={authors} books={books} countries={countries} />);
   };
@@ -116,38 +116,3 @@ const StoreContainer: React.FC = () => {
 };
 
 export default StoreContainer;
-
-/**
- store = {
-  1: { 
-    'name": "John",
-    "website": "www.john.com",
-    'rating': 5,
-    'storeImage': 'www.john.com/image.jpg',
-    'etstablisment': 'sample'
-    'relationship': {
-      'countries': 1,
-      'books': [1, 2, 8]
-    }
-  }
- }
-
- authors = {
-  'id': 'John Doe',
- }
-
- books = {
-  'id(1)' : {
-    name: 'book name',
-    copiesSold: 100,
-  },
-  author: 1
- }
-
-countries ={
-  'id' : 'HR'
-
-}
-
-
- */

@@ -1,12 +1,22 @@
 import React from "react";
+import { Store, Authors, Book } from "../types";
 
-const BookTable: React.FC = () => {
+interface BookTableProps {
+  store: Store,
+  authors: Authors,
+  books: { [id: string]: Book },
+}
+
+const BookTable: React.FC<BookTableProps> = ({ store, authors, books }) => {
+
+  
+
   return (
     <div className="book-table-container"> 
       <table className="book-table">
         <thead>
           <tr>
-            <th colSpan={2}>Book Name</th>
+            <th colSpan={2}>Best-selling books</th>
           </tr>
         </thead>
         <tbody>

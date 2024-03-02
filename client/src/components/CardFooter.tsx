@@ -7,14 +7,32 @@ interface CardFooterProps {
 };
 
 const CardFooter: React.FC<CardFooterProps> = ({ store, countries }) => {
+  //Formatting establishment date
+  const dataIso: string = store.establishmentDate;
+  const date = new Date(dataIso);
+  const dateFormatted: string = `${date.getDate()+1}.${date.getMonth()+1}.${date.getFullYear()}`
+
+  //Store URL
+  const storeUrl: string = store.website;
+
+  //Flag URL
+  const countryId: string = store.relationship.countries;
+  //Adjust URL based on screen size
+  const flagSize = window.innerWidth < 768 ? "24" : "48";
+  const flagUrl: string = `https://flagsapi.com/${countries[countryId]}/flat/${flagSize}.png`;
+  //Styles to accommodate how API handles different flag sizes. Not best practice, but works for this case
+  const flagContainerStyle = countries[countryId] === 'CH' ? { paddingRight: "2%" } : { paddingRight: "3%" };
+
+
   return (
     <div className="card-footer">
        <div className="date-url-container">
-        <p>Url & Date</p> 
+        <span>{dateFormatted} - </span>
+        <a href={storeUrl} target="_blank" rel="noopener noreferrer">{storeUrl}</a>
       </div>
 
-      <div className="flag-container">
-        <img className="flag-img" src="https://flagsapi.com/HR/flat/48.png"></img>
+      <div className="flag-container" style={flagContainerStyle}>
+        <img className="flag-img" src={flagUrl}></img>
       </div>
     </div>
   );

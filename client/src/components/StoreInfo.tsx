@@ -1,24 +1,33 @@
 import React from "react";
 import BookTable from "./BookTable";
+import { Store, Authors, Book } from "../types";
 
-const StoreInfo: React.FC = () => {
+interface StoreInfoProps {
+  store: Store,
+  authors: Authors,
+  books: { [id: string]: Book },
+}
+
+const StoreInfo: React.FC<StoreInfoProps> = ({ store, authors, books }) => {
+
+  const ratingStars: React.ReactElement[] = [];
+  for (let i: number = 0; i < store.rating; i++) {
+    ratingStars.push(<img src="../assets/star.png" alt="Star Rating" className="star-img" />)
+  };
+
   return (
     <div className="store-info-container">
       <div className="store-header-container">
-        <div className="store-name-container">Store Name</div>
+        <div className="store-name-container">{store.name}</div>
         <div className="store-rating-container">
-          <span className="store-rating">5.0</span>
+          <span className="store-rating">{store.rating}</span>
           <span className="stars-container">
-            <img src="../assets/star.png" alt="Star Rating" width="20" height="20" />
-            <img src="../assets/star.png" alt="Star Rating" width="20" height="20" />
-            <img src="../assets/star.png" alt="Star Rating" width="20" height="20" />
-            <img src="../assets/star.png" alt="Star Rating" width="20" height="20" />
-            <img src="../assets/star.png" alt="Star Rating" width="20" height="20" />
+            {ratingStars}
           </span>
         </div>
       </div>
 
-      <BookTable />
+      <BookTable store={store} books={books} authors={authors} />
     </div>
   );
 };
