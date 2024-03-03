@@ -90,13 +90,6 @@ const StoreContainer: React.FC = () => {
     fetchData();
   },[]);
 
-  useEffect(() => {
-    console.log('Stores state: ', stores)
-    console.log('Authors ', authors);
-    console.log('Books', books);
-    console.log('Countries', countries);
-  }, [stores, authors, books, countries]);
-
   const storeCardContainer: React.ReactElement[] = [];
   for (let key in stores) {
     storeCardContainer.push(<StoreCard key={key} store={stores[key]} authors={authors} books={books} countries={countries} />);

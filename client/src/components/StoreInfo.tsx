@@ -12,7 +12,7 @@ const StoreInfo: React.FC<StoreInfoProps> = ({ store, authors, books }) => {
 
   const ratingStars: React.ReactElement[] = [];
   for (let i: number = 0; i < store.rating; i++) {
-    ratingStars.push(<img src="../assets/star.png" alt="Star Rating" className="star-img" />)
+    ratingStars.push(<img src="../assets/star.png" alt="Star Rating" className="star-img" key={i}/>)
   };
 
   return (
