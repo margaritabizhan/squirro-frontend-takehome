@@ -39,11 +39,11 @@ const BookTable: React.FC<BookTableProps> = ({ store, authors, books }) => {
           </tr>
         </thead>
         <tbody>
+          {/* Conditional logic to display books or a message if no books are available */}
           {allBookInfo.length === 0 ? 
             <tr>
               <td colSpan={2}>No data available</td>
             </tr> : displayedBooks
-            
           }
         </tbody>
       </table>

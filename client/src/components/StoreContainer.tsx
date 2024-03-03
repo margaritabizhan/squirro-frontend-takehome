@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import StoreCard from "./StoreCard";
 import { Store, Authors, Book, Countries } from "../types";
 
+
 const StoreContainer: React.FC = () => {
   //Initializing state for store, authors, books, and countries
   const [stores, setStores] = useState<{ [id: string]: Store }>({});
@@ -68,6 +69,7 @@ const StoreContainer: React.FC = () => {
   };
 
   useEffect(() => {
+    //API call to get all store data
     const fetchData = async (): Promise<void> => {
       try {
         const response = await fetch('http://localhost:3000/stores', {});
@@ -75,9 +77,10 @@ const StoreContainer: React.FC = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         };
         const data = await response.json();
-        //Process data to populate store, authors, books, and countries
+        //Process data to populate store, authors, books, and countries states
         createStores(data.data);
         createAuthorsBooksCountries(data.included);
+        //Loading false after data is fetched
         setIsLoading(false);
 
       } catch(error) {
@@ -90,6 +93,7 @@ const StoreContainer: React.FC = () => {
     fetchData();
   },[]);
 
+  //Create store cards for each store
   const storeCardContainer: React.ReactElement[] = [];
   for (let key in stores) {
     storeCardContainer.push(<StoreCard key={key} store={stores[key]} authors={authors} books={books} countries={countries} />);

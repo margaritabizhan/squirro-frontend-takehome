@@ -11,6 +11,8 @@ interface StoreCardProps {
 };
 
 const StoreCard: React.FC<StoreCardProps> = ({ store, authors, books, countries }) => {
+  //CardMain contains the store image, name, rating and books info
+  //CardFooter contains the store website, establishment date and country flag
   return (
     <div className="store-card">
       <CardMain store={store} books={books} authors={authors}/>

@@ -9,7 +9,7 @@ interface CardMainProps {
 };
 
 const CardMain: React.FC<CardMainProps> = ({ store, authors, books }) => {
-  const storeImgUrl = store.storeImage;
+  const storeImgUrl: string = store.storeImage;
 
   return (
     <div className="card-main">

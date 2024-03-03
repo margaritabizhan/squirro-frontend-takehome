@@ -9,7 +9,7 @@ interface StoreInfoProps {
 }
 
 const StoreInfo: React.FC<StoreInfoProps> = ({ store, authors, books }) => {
-
+  //Create an array of star images to display the store rating
   const ratingStars: React.ReactElement[] = [];
   for (let i: number = 0; i < store.rating; i++) {
     ratingStars.push(<img src="../assets/star.png" alt="Star Rating" className="star-img" key={i}/>)
