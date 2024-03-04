@@ -1,8 +1,8 @@
-# Book Store App
+# Book Store App 🐿️
 
 Welcome to the Book Store App! This application displays the lists of the best-selling books for bookstores.
 
-## Getting Started
+## Getting Started ⚙️
 
 To get started with the Book Store App, follow these steps:
 
@@ -51,7 +51,7 @@ Once the dependencies are installed, start the client by running:
   npm start
   ```
 
-  ## Usage
+  ## Usage 📚
 After starting both the server and client, you can access the Book Store App by navigating to http://localhost:3000 in your web browser.
 
 
